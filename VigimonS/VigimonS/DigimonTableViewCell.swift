@@ -9,16 +9,23 @@
 import UIKit
 
 class DigimonTableViewCell: UITableViewCell {
-
-
-    
-    @IBOutlet weak var nameTxt: UITextField!
-    
-    @IBOutlet weak var elementTxt: UITextField!
     var updateHandler = {
         
     }
+    var deleteHandler = {
+        
+    }
+
+    @IBOutlet weak var levelTxt: UITextField!
     
+    @IBOutlet weak var nameTxt: UITextField!
+    
+    @IBAction func deleteBtn(_ sender: Any) {
+        deleteHandler()
+    }
+    @IBOutlet weak var powertxt: UITextField!
+    @IBOutlet weak var elementTxt: UITextField!
+
     @IBAction func updateBtn(_ sender: Any) {
         updateHandler()
     }

@@ -11,8 +11,15 @@ class ManageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        if(self.traitCollection.userInterfaceStyle == .dark){
+            if let themeSwitch = self.view.viewWithTag(178) as? UISwitch{
+                themeSwitch.isOn = true
+            }
+        }else{
+            if let themeSwitch = self.view.viewWithTag(178) as? UISwitch{
+                themeSwitch.isOn = false
+            }
+        }
     }
     
 
@@ -26,4 +33,15 @@ class ManageViewController: UIViewController {
     }
     */
 
+    @IBAction func changeTheme(_ sender: UISwitch) {
+        if(sender.isOn){
+            UIApplication.shared.windows.forEach{
+                window in window.overrideUserInterfaceStyle = .dark
+            }
+        }else{
+            UIApplication.shared.windows.forEach{
+                window in window.overrideUserInterfaceStyle = .light
+            }
+        }
+    }
 }
